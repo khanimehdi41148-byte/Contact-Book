@@ -34,3 +34,11 @@ class ContactManager:
         else:
             print("not found contact")
 
+    def search_contact(self):
+        name = input("enter contact name: ")
+        for contact in self.contacts:
+            if name.lower() in contact.name.lower():
+                print(contact)
+                return
+        print("not found contact")
+
