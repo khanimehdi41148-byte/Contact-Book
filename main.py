@@ -19,3 +19,6 @@ class ContactManager:
         self.filename = filename
         self.contacts = []
 
+    def add_contact(self, contact):
+        self.contacts.append(contact)
+
