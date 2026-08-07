@@ -65,5 +65,14 @@ class ContactManager:
         for i, contact in enumerate(self.contacts, start=1):
             print(f"{i}. {contact}")
 
-    
-            
+    def save_contacts(self):
+        with open(self.filename, "w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerow(["name", "phone", "email", "address"])
+            for contact in self.contacts:
+                writer.writerow([
+                    contact.name,
+                    contact.phone,
+                    contact.email,
+                    contact.address
+                ])
