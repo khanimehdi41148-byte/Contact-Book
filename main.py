@@ -93,3 +93,46 @@ class ContactManager:
                     self.contacts.append(contact)
         except FileNotFoundError:
             pass
+def main():
+    manager = ContactManager()
+    manager.load_contacts()
+
+    while True:
+        print("\n===== contact manager =====")
+        print("1. add contact")
+        print("2. remove contact")
+        print("3. search contact")
+        print("4. edit contact")
+        print("5. show all contact")
+        print("6. save & exit")
+
+        choice = input("please choose an option: ")
+
+        if choice == "1":
+            name = input("Please enter name: ")
+            phone = input("Please enter phone: ")
+            email = input("Please enter email: ")
+            address = input("Please enter address: ")
+            contact = Contact(name, phone, email, address)
+            manager.add_contact(contact)
+            print("contact added successfully")
+        elif choice == "2":
+            manager.show_contact()
+            number = input("Enter contact number: ")
+            manager.remove_contact(number)
+        elif choice == "3":
+            manager.search_contact()
+        elif choice == "4":
+            manager.edit_contact()
+        elif choice == "5":
+            manager.show_contact()
+        elif choice == "6":
+            manager.save_contacts()
+            print("contact added successfully")
+            print("GOOD BYE!")
+            break
+        else:
+            print("please enter number")
+
+if __name__ == "__main__":
+    main()
