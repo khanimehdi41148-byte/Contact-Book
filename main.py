@@ -13,3 +13,9 @@ class Contact:
             f"E-mail: {self.email} | "
             f"Address: {self.address} | "
         )
+class ContactManager:
+    def __init__(self, filename = "contact_book.csv"):
+
+        self.filename = filename
+        self.contacts = []
+
