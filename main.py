@@ -13,6 +13,7 @@ class Contact:
             f"E-mail: {self.email} | "
             f"Address: {self.address} | "
         )
+
 class ContactManager:
     def __init__(self, filename = "contact_book.csv"):
 
@@ -42,3 +43,16 @@ class ContactManager:
                 return
         print("not found contact")
 
+    def edit_contact(self)
+        name = input("Enter contact name: ")
+        for contact in self.contacts:
+            if name.lower() in contact.name.lower():
+                new_phone = input("New phone: ")
+                new_email = input("New email: ")
+                new_address = input("New address: ")
+                contact.phone = new_phone
+                contact.email = new_email
+                contact.address = new_address
+                print("Contact updated successfully")
+                return
+        print("Contact not found")
