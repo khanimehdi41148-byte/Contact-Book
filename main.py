@@ -56,3 +56,14 @@ class ContactManager:
                 print("Contact updated successfully")
                 return
         print("Contact not found")
+
+    def show_contact(self):
+        if not self.contacts:
+            print("contact list empty")
+            return
+        print("contact list: ")
+        for i, contact in enumerate(self.contacts, start=1):
+            print(f"{i}. {contact}")
+
+    
+            
