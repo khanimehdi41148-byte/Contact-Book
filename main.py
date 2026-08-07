@@ -43,7 +43,7 @@ class ContactManager:
                 return
         print("not found contact")
 
-    def edit_contact(self)
+    def edit_contact(self):
         name = input("Enter contact name: ")
         for contact in self.contacts:
             if name.lower() in contact.name.lower():
@@ -76,3 +76,20 @@ class ContactManager:
                     contact.email,
                     contact.address
                 ])
+    def load_contacts(self):
+        try:
+            with open(self.filename, "r", newline="", encoding="utf-8") as file:
+                reader = csv.reader(file)
+                next(reader, None)
+                self.contacts.clear()
+
+                for row in reader:
+                    contact = Contact(
+                        row[0],
+                        row[1],
+                        row[2],
+                        row[3]
+                    )
+                    self.contacts.append(contact)
+        except FileNotFoundError:
+            pass
