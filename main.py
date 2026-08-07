@@ -22,3 +22,15 @@ class ContactManager:
     def add_contact(self, contact):
         self.contacts.append(contact)
 
+    def remove_contact(self, index):
+        try:
+            index = int(index) -1
+        except ValueError:
+            print("invalid inex! enter number.")
+        if 0 <= index < len(self.contacts):
+            removed = self.contacts.pop(index)
+            print(f"{removed.name} deleted")
+            return
+        else:
+            print("not found contact")
+
